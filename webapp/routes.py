@@ -7,4 +7,4 @@ current_dir = os. getcwd()
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html', current_dir=current_dir)
+    return render_template('index.html', current_dir=current_dir)
