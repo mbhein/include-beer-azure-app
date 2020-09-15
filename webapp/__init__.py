@@ -1,19 +1,36 @@
 """Initialize Flask app."""
+import os
 from flask import Flask
-# from flask_assets import Environment
+from flask import render_template
 
 
-def init_app():
-    """Construct core Flask application with embedded Dash app."""
-    app = Flask(__name__)
+
+def init_app(test_config=None):
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_mapping(
+        # default secret that should be overriden by instance
+        SECRET_KEY="dev"
+    )
     
+    if test_config is None:
+        # load the instance config, if it exists, when not testing
+        app.config.from_pyfile("config.py", silent=True)
+    else:
+        # load the test config if passed in
+        app.config.update(test_config)
 
-    with app.app_context():
-        # Import routes of webapp
-        from . import routes
+    # ensure the instance folder exists
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
 
-        # Import stats
-        # from .webapp import stats
-        # app = init_dashboard(app)
+    # apply the blueprints to the app
+    from webapp import brewery
 
-        return app
+    app.register_blueprint(brewery.bp)
+
+    app.add_url_rule("/", endpoint="index")
+
+    return app
+
