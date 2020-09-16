@@ -28,4 +28,7 @@ def index():
 
 @bp.route("/<session_id>")
 def session(session_id):
-    return render_template('session.html', session_id=session_id, sessions=brew.sessions)
+    brew_session = next(filter(
+        lambda session: session.get('id') == session_id, brew.sessions), None)
+
+    return render_template('session.html', session_id=session_id, session=brew_session)

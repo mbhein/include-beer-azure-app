@@ -1,9 +1,13 @@
 <html>
  <body>
   <h1>Include-Beer!</h1>
-
-  <p>Session: {{ session_id }}</p>
+    <h2>Session: {{ session.name }}</h2>
   <p>Session Stats: <a href=/stats/{{ session_id }}>Here</a></p>
+<p>Session Values
+    {% for key, value in session.items() %}
+<ul>{{ key }} : {{ value }}</ul>
+{% endfor %}
+</p>
   <p><a href="/">Home</a></p>
  </body>
 </html>
