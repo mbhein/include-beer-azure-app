@@ -1,0 +1,247 @@
+---
+# default_defs stores the default definition of include-beer
+
+INCLUDE_BEER_AMBIENT_PIN:
+    name: GPIO Pin location of Ambient sensor data
+    type: string
+    default: 26
+    description:
+        - Usually is a number corresponding to GPIO pin
+        - Can be set to Empty for local testing
+    env: 
+        - {name: INCLUDE_BEER_AMBIENT_PIN}
+    ini: 
+        - { key: ambient_pin, section: defaults}
+
+INCLUDE_BEER_AMBIENT_SENSOR:
+    name: Ambient Sensor Type
+    type: string
+    default: DHT11
+    description:
+        - Name of sensor used to gather ambient temperature and humidity
+    env: 
+        - {name: INCLUDE_BEER_AMBIENT_SENSOR}
+    ini: 
+        - { key: ambient_sensor, section: defaults}
+
+INCLUDE_BEER_BASE_DIR:
+    name: Base directory include-beer is installed in
+    type: string
+    default: ~/include-beer
+    description:
+        - Where include-beer repo/release has been installed
+    env: 
+        - {name: INCLUDE_BEER_BASE_DIR}
+    ini: 
+        - { key: base_dir, section: defaults}
+
+INCLUDE_BEER_LOG_DIR:
+    name: Location logs are written to
+    type: string
+    default: ~/include-beer/logs
+    description:
+        - Where include-beer logs are written to
+    env: 
+        - {name: INCLUDE_BEER_LOG_DIR}
+    ini: 
+        - { key: log_dir, section: defaults}
+
+INCLUDE_BEER_STATS_DIR:
+    name: Location stats are written to
+    type: string
+    default: ~/include-beer/stats
+    description:
+        - Where include-beer stats are written to
+    env: 
+        - {name: INCLUDE_BEER_STATS_DIR}
+    ini: 
+        - { key: stats_dir, section: defaults}
+
+INCLUDE_BEER_DEBUG:
+    name: If debug is enable or not
+    type: boolean
+    default: False
+    description:
+        - Set to True to enable debugging
+    env: 
+        - {name: INCLUDE_BEER_DEBUG}
+    ini: 
+        - { key: debug, section: defaults}
+
+INCLUDE_BEER_TEMPERATURE_SCALE:
+    name: Which temperature scale to use
+    type: string
+    default: f
+    description:
+        - Which temperature scale to use (f or c, default f)
+    env: 
+        - {name: INCLUDE_BEER_TEMPERATURE_SCALE}
+    ini: 
+        - { key: temperature_scale, section: defaults}
+
+INCLUDE_BEER_TARGET_TEMP:
+    name: Target temperature of fermentation
+    type: int
+    default: 68
+    description:
+        - Set target temperature to keep fermentation vessel at
+    env: 
+        - {name: INCLUDE_BEER_TARGET_TEMP}
+    ini: 
+        - { key: target_temp, section: fermentation}
+
+INCLUDE_BEER_STAGE:
+    name: Stage of fermentation
+    type: string
+    default: primary
+    description:
+        - Set fermenation stage
+    env: 
+        - {name: INCLUDE_BEER_STAGE}
+    ini: 
+        - { key: stage, section: fermentation}
+
+INCLUDE_BEER_CELLAR_NAME:
+    name: Name of Cellar to watch
+    type: string
+    default: My Cellar
+    description:
+        - Set name of cellar to watch
+    env: 
+        - {name: INCLUDE_BEER_CELLAR_NAME}
+    ini: 
+        - { key: name, section: cellar}
+
+INCLUDE_BEER_HEAT_CONTROL_FILE:
+    name: File used to indicate heating element is on
+    type: string
+    default: ~/include-beer/status/ferm_heat_element_on
+    description:
+        - File used to indicate heating element is on
+    env: 
+        - {name: INCLUDE_BEER_HEAT_CONTROL_FILE}
+    ini: 
+        - { key: heat_control_file, section: fermentation}
+
+INCLUDE_BEER_VESSEL_01:
+    name: Dictionary of values for vessel 01
+    type: dict
+    default: None
+    description:
+        - Name: name of vessel
+        - Probe: section.id of probe
+    env: 
+        - {name: INCLUDE_BEER_VESSEL_01}
+    ini: 
+        - { key: vessel_01, section: vessels}
+
+INCLUDE_BEER_VESSEL_02:
+    name: Dictionary of values for vessel 01
+    type: dict
+    default: None
+    description:
+        - Name: name of vessel
+        - Probe: section.id of probe
+    env: 
+        - {name: INCLUDE_BEER_VESSEL_02}
+    ini: 
+        - { key: vessel_02, section: vessels}
+
+INCLUDE_BEER_DS18B20_BASE_DIR:
+    name: Base directory DS18B20 devices are listed in
+    type: string
+    default: /sys/bus/w1/devices
+    description:
+        - Base directory DS18B20 devices are listed in
+    env: 
+        - {name: INCLUDE_BEER_DS18B20_BASE_DIR}
+    ini: 
+        - { key: base_dir, section: DS18B20}
+
+INCLUDE_BEER_DS18B20_DATA_FILE:
+    name: DS18B20 file with temperatue data
+    type: string
+    default: w1_slave
+    description:
+        - DS18B20 file with temperatue data
+    env: 
+        - {name: INCLUDE_BEER_DS18B20_DATA_FILE}
+    ini: 
+        - { key: data_file, section: DS18B20}
+
+INCLUDE_BEER_DS18B20_PROBE_01_ID:
+    name: DS18B20 probe 01 ID
+    type: string
+    default: None
+    description:
+        - DS18B20 ID of probe 01
+    env: 
+        - {name: INCLUDE_BEER_DS18B20_PROBE_01_ID}
+    ini: 
+        - { key: probe_01_id, section: DS18B20}
+
+INCLUDE_BEER_RFOUTLET_BASE_DIR:
+    name: Directory RFOutlet is installed in
+    type: string
+    default: ~/rfoutlet
+    description:
+        - Directory RFOutlet is installed in
+    env: 
+        - {name: INCLUDE_BEER_RFOUTLET_DIR}
+    ini: 
+        - { key: base_dir, section: rfoutlet}
+
+INCLUDE_BEER_RFOUTLET_OUTLET_01:
+    name: RFOutlet outlet 01 dictionary
+    type: dict
+    default: { pulse: 168, on_code: 5256451, off_code: 5256460}
+    description:
+        - RFOutlet outlet 01 dictionary: pulse, on_code, off_code
+    env: 
+        - {name: INCLUDE_BEER_RFOUTLET_OUTLET_01}
+    ini: 
+        - { key: outlet_01, section: rfoutlet}
+
+INCLUDE_BEER_WEB_DEBUG:
+    name: Run flask web app(s) in debug mode
+    type: bool
+    default: False
+    description:
+        - Run flash web app(s) in debug mode
+    env: 
+        - {name: INCLUDE_BEER_WEB_DEBUG}
+    ini: 
+        - { key: debug, section: web}
+
+INCLUDE_BEER_WEB_HOST:
+    name: Host IP of Flask server
+    type: string
+    default: 0.0.0.0
+    description:
+        - Host IP of Flask server
+    env: 
+        - {name: INCLUDE_BEER_WEB_HOST}
+    ini: 
+        - { key: host, section: web}
+
+INCLUDE_BEER_WEB_PORT:
+    name: Host PORT of Flask server
+    type: int
+    default: 8080
+    description:
+        - Host PORT of Flask server
+    env: 
+        - {name: INCLUDE_BEER_WEB_PORT}
+    ini: 
+        - { key: port, section: web}
+
+INCLUDE_BEER_WEB_DATA_REFRESH_RATE:
+    name: How often data is refreshed on web site (seconds)
+    type: int
+    default: 300
+    description:
+        - Refresh rate of data on web site (seconds)
+    env: 
+        - {name: INCLUDE_BEER_WEB_DATA_REFRESH_RATE}
+    ini: 
+        - { key: data_refresh_rate, section: web}
