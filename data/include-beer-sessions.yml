@@ -1,0 +1,34 @@
+- id: ALE123456
+  name: "Looking Pale Wheat Session"
+  stage: primary
+  control_temperature: false
+  vessels:
+    - name: Anvil_4gal
+      probe:
+        type: DS18B20
+        serial_number: 28-2018
+    - name: Demon_01
+      probe:
+        type: DS18B20
+        serial_number: 28-2019
+    - name: Carboy_6_5gal
+      probe:
+        type: DS18B20
+        serial_number: 28-20201
+    - name: Demon_01
+      probe:
+        type: DS18B20
+        serial_number: 28-2019
+- id: ALE7890123
+  name: "Porter The Porter"
+  stage: secondary
+  control_temperature: false
+  vessels:
+    - name: Anvil_7gal
+      probe:
+        type: DS18B20
+        serial_number: 28-0416a16419f1
+    - name: Demon_02
+      probe:
+        type: DS18B20
+        serial_number: 28-01131f649415
