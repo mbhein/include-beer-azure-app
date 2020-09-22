@@ -17,7 +17,7 @@ brew = sessions_mgr.SessionsManager()
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = init_app()
+
 
 def init_app(test_config=None):
 
@@ -66,5 +66,5 @@ def register_app_dash(app):
         register_callbacks(app_dash, config, brew)
         
 
-
+app = init_app()
 
