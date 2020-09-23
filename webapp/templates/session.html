@@ -4,9 +4,11 @@
     <h2>Session: {{ session.name }}</h2>
   <p>Session Stats: <a href=/stats/{{ session_id }}>Here</a></p>
 <p>Session Values
+  {% if session and session.items %}
     {% for key, value in session.items() %}
 <ul>{{ key }} : {{ value }}</ul>
 {% endfor %}
+{% endif %}
 </p>
   <p><a href="/">Home</a></p>
  </body>
