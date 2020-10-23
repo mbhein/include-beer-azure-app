@@ -1,0 +1,21 @@
+<html>
+ <body>
+  <h1>Include-Beer!</h1>
+
+  <p>Default Values
+    {% for key, value in defaults.items() %}
+    <ul>{{ key }}: 
+      {% if value is mapping %}
+        {% for k, v in value.items() %}
+        <ul>{{ k }}: {{ v }}</ul>
+        {% endfor %}
+      {% else %}
+      {{ value }}
+      {% endif %}
+    </ul>
+    {% endfor %}
+    </p>
+      <iframe src="stats" style="border: none;" width="100%" height="100%"/>
+
+ </body>
+</html>

@@ -1,3 +1,4 @@
+include-beer-core
 pyyaml
 dash
 pandas
