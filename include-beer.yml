@@ -1,1 +1,2 @@
-stats_dir: /home/site/wwwroot/stats
+[defaults]
+stats_dir= /home/site/wwwroot/stats
