@@ -27,7 +27,11 @@ stats_file = os.path.abspath(os.path.join(
 data_refresh_rate = config.web.refresh_rate
 
 
+
 server = flask.Flask(__name__)
+
+server.run(debug=config.web.debug,
+           host=config.web.host, port=config.web.port)
 
 @server.route('/')
 def index():
@@ -77,7 +81,6 @@ def update_graph(n, pathname):
 
     return fig
 
-if __name__ == '__main__':
 
-    server.run(debug=config.web.debug,
-               host=config.web.host, port=config.web.port)
+
+
