@@ -27,18 +27,14 @@ stats_file = os.path.abspath(os.path.join(
 data_refresh_rate = config.web.refresh_rate
 
 
+app = flask.Flask(__name__)
 
-server = flask.Flask(__name__)
-
-server.run(debug=config.web.debug,
-           host=config.web.host, port=config.web.port)
-
-@server.route('/')
+@app.route('/')
 def index():
       return flask.render_template('index.html', defaults=config.operating_dict)
     
 
-app_dash = dash.Dash(__name__, server=server)
+app_dash = dash.Dash(__name__, server=app)
 
 
 
@@ -81,6 +77,6 @@ def update_graph(n, pathname):
 
     return fig
 
+if __name__ == '__main__':
 
-
-
+    app.run(host='0.0.0.0')
