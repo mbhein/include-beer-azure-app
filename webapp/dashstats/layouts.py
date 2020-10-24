@@ -10,7 +10,7 @@ layout = html.Div(children=[
     # represents the URL bar, doesn't render anything
     dcc.Location(id='url', refresh=False),
 
-    html.Div(id='session-text'),
+    #html.Div(id='session-text'),
 
     html.Div(id='live-text'),
     

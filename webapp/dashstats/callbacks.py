@@ -32,7 +32,7 @@ def register_callbacks(app_dash, config, brew):
                     [Input('interval-component', 'n_intervals')])
     def update_live_text(n):
 
-        live_text = 'Current vessel temperatures as of ' + \
+        live_text = 'Current stats as of ' + \
             str(datetime.datetime.now())
 
         return live_text
@@ -55,11 +55,17 @@ def register_callbacks(app_dash, config, brew):
 
         # stats_file = os.path.abspath(os.path.join(
         #     stats_dir, brew_session['id'] + '_' + brew_session['stage'] + '.csv'))
+        # stats_file = os.path.abspath(os.path.join(
+        #     stats_dir, _session + '_primary.csv'))
+        # df = pd.read_csv(stats_file)
+
+        # fig = px.line(df, x="timestamp", y="vessel_temperature", color="vessel")
         stats_file = os.path.abspath(os.path.join(
-            stats_dir, _session + '_primary.csv'))
+            stats_dir, 'includebeeredgeth.csv'))
+
         df = pd.read_csv(stats_file)
 
-        fig = px.line(df, x="timestamp", y="vessel_temperature", color="vessel")
+        fig = px.line(df, x="timestamp", y="temperature")
 
         return fig
 

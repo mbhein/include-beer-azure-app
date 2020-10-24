@@ -2,6 +2,7 @@
  <body>
   <h1>Include-Beer!</h1>
 
+
     <p>Brew Sessions
 
         {% for session in sessions %}
@@ -9,6 +10,8 @@
     <ol>{{ session.name }}: <a href="/{{ session.id }}">Session Home</a></ol>
     {% endfor %}
     </p>
+  
+    <iframe src="stats" style="border: none;" width="100%" height="100%" />
 
  </body>
 </html>
